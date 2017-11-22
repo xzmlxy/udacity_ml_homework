@@ -13331,7 +13331,7 @@ Testing set has 9045 samples.
 
 
 <span class="c1"># TODO：计算1%， 10%， 100%的训练数据分别对应多少点</span>
-<span class="n">samples_1</span> <span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mf">0.01</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">y_val</span><span class="p">))</span>
+<span class="n">samples_1</span> <span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mf">0.01</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">y_train</span><span class="p">))</span>
 <span class="n">samples_10</span> <span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">y_train</span><span class="p">))</span>
 <span class="n">samples_100</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span>
 
@@ -14172,7 +14172,7 @@ SZLUMwsISZIkST2zgJAkSZLUMwsISZIkST2zgJAkSZLUs/8PkFkTzAF2fJ0AAAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>回答： </strong>  要说明随机森林，首先需要说明一下决策树算法的工作原理：这个算法模拟了人在做决策时的处理机制，根据不同的情况，做出不同的选择。在某个决策完成后，继续下一个子选择。这样，整个决策过程就成了一个树状的结构，也正因为此，它的名字叫做“决策树”。这个过程在预测数据的分类时很明显，它会对被预测数据进行多次判定测试，也就是多次的“决策”。这个测试不是同时进行的，而是根据上一个测试的结果，选择下一个需要做的测试，直到将数据归为这棵树的某一个叶子节点，也就是某一个具体的分类。为了让决策树模型具有这种能力，需要对它进行训练。在这个训练过程中，需要寻找这样的判定测试：一组数据经过判定后被分为两组或多组，每组数据应该变得越来越“纯净”，也就是不再包含多个不同类别的数据，而变得越来越只包含单个类别的数据。越具有这种分组能力的测试，应该越早被找到。在找到足够多的判定测试后，也就是让每个分组足够“纯净”后，训练工作也就完成了。
-    随机森林在这个基础上进行了改进，它训练生成的不是一颗决策树，就如同它的名字一样是多棵树组成的“森林”。另外，它随机的选择了数据的不同特性，用来生成不同的树。之所以这么做，是因为一般情况下，多颗不同的树进行投票表决，会比单纯的一颗树说了算更好一些。</p>
+    随机森林在这个基础上进行了改进，它训练生成的不是一颗决策树，就如同它的名字一样是多棵树组成的“森林”。另外，它的“随机”体现在训练时的两个方面：有放回的随机选择训练数据，以及随机选择数据的不同特性进行训练。 这样，训练生成的每棵树都会不一样。之所以这么做，是因为由多颗不同的决策树进行投票表决，得到的结果通常会更全面、更好一些。</p>
 
 </div>
 </div>
