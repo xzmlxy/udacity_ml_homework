@@ -25,6 +25,7 @@ class LearningAgent(Agent):
         ###########
         # Set any additional class parameters as needed  
         self.all_action = ['forward','right','left',None]
+        self.t = 0
 
     def reset(self, destination=None, testing=False):
         """ The reset function is called at the beginning of each trial.
@@ -44,7 +45,8 @@ class LearningAgent(Agent):
             self.epsilon = 0
             self.alpha = 0
         else:
-            self.epsilon = self.epsilon *0.9
+            self.t+=1
+            self.epsilon = math.cos(0.003*self.t)
         return None
 
     def build_state(self):
@@ -60,19 +62,7 @@ class LearningAgent(Agent):
         ## TO DO ##
         ###########
         # Set 'state' as a tuple of relevant data for the agent
-        if waypoint=='forward':
-           #is_safe = (inputs['light'] == 'green' and inputs['oncoming'] !='left' and inputs['right'] != 'right')
-           is_safe = (inputs['light'] == 'green')
-           state = (waypoint,is_safe)
-        elif waypoint=='right':
-           #is_safe = not ((inputs['light'] == 'green' and inputs['oncoming']=='left') or (inputs['light'] == 'red' and inputs['left']=='forward'))
-           is_safe = not (inputs['light'] == 'red' and inputs['left']=='forward')
-           state = (waypoint,is_safe)
-        elif waypoint=='left':
-           is_safe = (inputs['light'] == 'green' and inputs['oncoming'] !='forward'and inputs['oncoming'] != 'right')
-           state = (waypoint,is_safe)
-        else:
-           state = (None)
+        state = (waypoint, inputs['light'],inputs['oncoming'],inputs['left'],inputs['right'])
         return state
 
     def get_maxQ(self, state):
@@ -195,14 +185,14 @@ def run():
     #   display      - set to False to disable the GUI if PyGame is enabled
     #   log_metrics  - set to True to log trial and simulation results to /logs
     #   optimized    - set to True to change the default log file name
-    sim = Simulator(env,update_delay=0.05,log_metrics=True,display=False,optimized=True)
+    sim = Simulator(env,update_delay=0.01,log_metrics=True,display=False,optimized=True)
 
     ##############
     # Run the simulator
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test=20,tolerance=0.0055)
+    sim.run(n_test=10,tolerance=0.07)
 
 
 if __name__ == '__main__':
