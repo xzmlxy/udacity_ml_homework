@@ -16903,7 +16903,7 @@ SAAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>回答：</strong> 最优策略，就是能获得最大Q值的动作。具体到这个游戏，就是使小车安全的、不违规的抵达目的地的动作。比如应该根据waypoint行驶，但又不能在light为red时左转或直行等。我查看了sim_improved-learning.txt，其中大部分策略是正确的，但也有小部分策略不同于预期。我查看了这部分最优策略不同于预期的状态，发现在这些状态下不少动作的Q值都为0,说明在训练中对该状态的探索和学习比较少，譬如以下这个状态：<br>
+<p><strong>回答：</strong> 最优策略，就是能获得最大Q值的动作。具体到这个游戏，就是使小车安全、不违规的按照最优路线抵达目的地的动作。根据waypoint来确定目的地方向，同时还要根据inputs中的各个信号，使小车遵守交通规则。我查看了sim_improved-learning.txt，其中大部分策略是正确的，但也有小部分策略不同于预期。我查看了这部分最优策略不同于预期的状态，发现在这些状态下不少动作的Q值都为0,说明在训练中对该状态的探索和学习比较少，譬如以下这个状态：<br>
 ('left', 'green', 'right', 'forward', 'forward')<br>
 -- forward : 0.70<br>
 -- right : 0.00<br>
@@ -16943,7 +16943,7 @@ SAAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>回答：</strong> 在这个游戏环境中，是waypoint特征影响了Q值，驱使训练后的小车驶向了目的地，环境并没有为到达目的地给予额外的奖励。另外，小车的起点和终点也是随机选择的。在这样的环境下，前一步的选择与后一步的Q值并不存在关联性，所以此时将Q值以未来奖励的形式返回给上个状态是不合理的。</p>
+<p><strong>回答：</strong> 在这个游戏中，小车的起点和终点每次都是随机选择的。这让到达目的地的额外奖励在“扩散”后，不能有效的帮助小车不断学习，反而可能会误导小车下次重新开始后方向的选择。所以在这个项目中，为目的地添加额外的奖励，并以未来奖励的形式给予代理程序是不合理的。</p>
 
 </div>
 </div>
