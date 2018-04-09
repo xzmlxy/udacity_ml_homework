@@ -1,1 +1,1 @@
-20 newsgroupsÊı¾İ¼¯ÏÂÔØµØÖ·£ºhttp://www.qwone.com/~jason/20Newsgroups/
+ï»¿20 newsgroups æ•°æ®é›†ä¸‹è½½åœ°å€ï¼šhttp://www.qwone.com/~jason/20Newsgroups/
