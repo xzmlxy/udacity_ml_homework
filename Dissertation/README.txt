@@ -1,5 +1,5 @@
-°üÀ¨ÈçÏÂÄÚÈÝ£º
-1 ÓÅ´ïÑ§³Ç±ÏÒµÏîÄ¿-ÎÄ±¾·ÖÀà.pdf  ±ÏÒµÏîÄ¿±¨¸æ
-2 Text classification.ipynb      ±ÏÒµÏîÄ¿µÄ´úÂë
-3 Text_classification.html       °üº¬´úÂëºÍ´úÂëÔËÐÐ½á¹ûµÄhtmlÎÄ¼þ
-4 myword2vec.model               Éú³ÉµÄ´ÊÏòÁ¿Ä£ÐÍ
+åŒ…æ‹¬å¦‚ä¸‹å†…å®¹ï¼š
+1 dissertation.pdf               æ¯•ä¸šé¡¹ç›®æŠ¥å‘Š
+2 Text classification.ipynb      æ¯•ä¸šé¡¹ç›®çš„ä»£ç 
+3 Text_classification.html       åŒ…å«ä»£ç å’Œä»£ç è¿è¡Œç»“æžœçš„htmlæ–‡ä»¶
+4 myword2vec.model               ç”Ÿæˆçš„è¯å‘é‡æ¨¡åž‹
