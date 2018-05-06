@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Text classification</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Text_classification</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11931,7 +11931,7 @@ talk.politics.mideast have 564 train data, and 376 test data.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0xe129780&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0xfa7ca58&gt;</pre>
 </div>
 
 </div>
@@ -12153,11 +12153,11 @@ ZtZLrVJv3z16M7MearV6++7Rm5n1UKvV23eiNzPLnKdXmpllzonezCxzTvRmZplzojczy5wTvZlZ
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>C:\Users\xzmh2o\Anaconda3\envs\py2\lib\site-packages\sklearn\feature_extraction\hashing.py:94: DeprecationWarning: the option non_negative=True has been deprecated in 0.19 and will be removed in version 0.21.
+<pre>E:\Anaconda\envs\py2\lib\site-packages\sklearn\feature_extraction\hashing.py:94: DeprecationWarning: the option non_negative=True has been deprecated in 0.19 and will be removed in version 0.21.
   &#34; in version 0.21.&#34;, DeprecationWarning)
-C:\Users\xzmh2o\Anaconda3\envs\py2\lib\site-packages\sklearn\feature_extraction\hashing.py:94: DeprecationWarning: the option non_negative=True has been deprecated in 0.19 and will be removed in version 0.21.
+E:\Anaconda\envs\py2\lib\site-packages\sklearn\feature_extraction\hashing.py:94: DeprecationWarning: the option non_negative=True has been deprecated in 0.19 and will be removed in version 0.21.
   &#34; in version 0.21.&#34;, DeprecationWarning)
-C:\Users\xzmh2o\Anaconda3\envs\py2\lib\site-packages\sklearn\feature_extraction\hashing.py:94: DeprecationWarning: the option non_negative=True has been deprecated in 0.19 and will be removed in version 0.21.
+E:\Anaconda\envs\py2\lib\site-packages\sklearn\feature_extraction\hashing.py:94: DeprecationWarning: the option non_negative=True has been deprecated in 0.19 and will be removed in version 0.21.
   &#34; in version 0.21.&#34;, DeprecationWarning)
 </pre>
 </div>
@@ -12181,7 +12181,7 @@ C:\Users\xzmh2o\Anaconda3\envs\py2\lib\site-packages\sklearn\feature_extraction\
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 训练基准模型并测试性能</span>
@@ -12222,8 +12222,8 @@ C:\Users\xzmh2o\Anaconda3\envs\py2\lib\site-packages\sklearn\feature_extraction\
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>svc训练时间为17.8210000992
-svc预测时间为10.3409998417
+<pre>svc训练时间为7.29399991035
+svc预测时间为4.17100000381
                        precision    recall  f1-score   support
 
         comp.graphics       0.86      0.87      0.86       389
@@ -12235,8 +12235,8 @@ talk.politics.mideast       0.98      0.87      0.92       376
 
           avg / total       0.88      0.87      0.88      2314
 
-线性SVC训练时间为0.276999950409
-线性SVC预测时间为0.00500011444092
+线性SVC训练时间为0.131000041962
+线性SVC预测时间为0.00300002098083
                        precision    recall  f1-score   support
 
         comp.graphics       0.86      0.89      0.88       389
@@ -12258,7 +12258,7 @@ talk.politics.mideast       0.97      0.91      0.94       376
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 为创建词向量做预处理</span>
@@ -12271,6 +12271,7 @@ talk.politics.mideast       0.97      0.91      0.94       376
 <span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">train</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
     <span class="n">document</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="n">words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\W&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="n">document</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="c1">#     words = [w for w in words if w not in STOPWORDS]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)):</span>
         <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
     <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">STOPWORDS</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="n">char</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">w</span><span class="p">)]</span>
@@ -12278,6 +12279,7 @@ talk.politics.mideast       0.97      0.91      0.94       376
 <span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">test</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
     <span class="n">document</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="n">words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\W&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="n">document</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="c1">#     words = [w for w in words if w not in STOPWORDS]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)):</span>
         <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
     <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">STOPWORDS</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="n">char</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">w</span><span class="p">)]</span>
@@ -12291,7 +12293,7 @@ talk.politics.mideast       0.97      0.91      0.94       376
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 训练词向量模型并保存</span>
@@ -12314,7 +12316,7 @@ talk.politics.mideast       0.97      0.91      0.94       376
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#使用简单的求和方式获取文档向量</span>
@@ -12343,52 +12345,7 @@ talk.politics.mideast       0.97      0.91      0.94       376
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># linearSVC的效果不好</span>
-<span class="n">lclf</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">()</span>
-<span class="n">lclf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">docs_vec_train</span><span class="p">,</span><span class="n">train</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
-<span class="n">test_lsv_predict</span> <span class="o">=</span> <span class="n">lclf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">docs_vec_test</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">test_lsv_predict</span><span class="p">,</span><span class="n">target_names</span><span class="o">=</span><span class="n">test</span><span class="o">.</span><span class="n">target_names</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>                       precision    recall  f1-score   support
-
-        comp.graphics       0.77      0.87      0.82       389
-            rec.autos       0.90      0.80      0.85       396
-      sci.electronics       0.74      0.73      0.73       393
-              sci.med       0.83      0.88      0.86       396
-   talk.politics.guns       0.98      0.88      0.93       364
-talk.politics.mideast       0.93      0.96      0.94       376
-
-          avg / total       0.86      0.85      0.85      2314
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#搜索参数</span>
@@ -12431,7 +12388,7 @@ talk.politics.mideast       0.93      0.96      0.94       376
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#训练分类模型并测试性能</span>
@@ -12461,11 +12418,11 @@ talk.politics.mideast       0.93      0.96      0.94       376
 <pre>训练集结果
                        precision    recall  f1-score   support
 
-        comp.graphics       0.92      0.91      0.91       584
+        comp.graphics       0.91      0.92      0.91       584
             rec.autos       0.91      0.93      0.92       594
-      sci.electronics       0.89      0.86      0.87       591
-              sci.med       0.93      0.95      0.94       594
-   talk.politics.guns       0.96      0.96      0.96       546
+      sci.electronics       0.89      0.85      0.87       591
+              sci.med       0.94      0.95      0.95       594
+   talk.politics.guns       0.96      0.97      0.96       546
 talk.politics.mideast       0.99      0.99      0.99       564
 
           avg / total       0.93      0.93      0.93      3473
@@ -12473,11 +12430,11 @@ talk.politics.mideast       0.99      0.99      0.99       564
 测试集结果
                        precision    recall  f1-score   support
 
-        comp.graphics       0.82      0.86      0.84       389
-            rec.autos       0.90      0.88      0.89       396
-      sci.electronics       0.78      0.73      0.76       393
-              sci.med       0.85      0.90      0.87       396
-   talk.politics.guns       0.93      0.93      0.93       364
+        comp.graphics       0.81      0.87      0.84       389
+            rec.autos       0.89      0.89      0.89       396
+      sci.electronics       0.79      0.72      0.75       393
+              sci.med       0.88      0.87      0.87       396
+   talk.politics.guns       0.92      0.93      0.93       364
 talk.politics.mideast       0.96      0.95      0.96       376
 
           avg / total       0.87      0.87      0.87      2314
@@ -12492,13 +12449,11 @@ talk.politics.mideast       0.96      0.95      0.96       376
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 计算idf字典</span>
 <span class="n">idf_count_dic</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="c1"># 计算权重字典</span>
-<span class="n">use_count_dic</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">word_vectors</span><span class="o">.</span><span class="n">vocab</span><span class="p">:</span>
     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -12509,11 +12464,6 @@ talk.politics.mideast       0.96      0.95      0.96       376
         <span class="n">document</span> <span class="o">=</span> <span class="n">processed_train</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
             <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">use_count_dic</span><span class="p">:</span>
-                <span class="n">use_count_dic</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">train</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">use_count_dic</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span>
-                <span class="n">use_count_dic</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">train</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">idf_count_dic</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
 </pre></div>
 
