@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Text_classification</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Text classification</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11773,7 +11773,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -11789,7 +11789,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;comp.graphics&#39;</span><span class="p">,</span> <span class="s1">&#39;rec.autos&#39;</span><span class="p">,</span><span class="s1">&#39;sci.electronics&#39;</span><span class="p">,</span><span class="s1">&#39;sci.med&#39;</span><span class="p">,</span><span class="s1">&#39;talk.politics.guns&#39;</span><span class="p">,</span><span class="s1">&#39;talk.politics.mideast&#39;</span><span class="p">]</span>
@@ -11799,65 +11799,17 @@ div#notebook {
 <span class="n">test</span> <span class="o">=</span> <span class="n">fetch_20newsgroups</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                            <span class="n">subset</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">,</span>
                            <span class="n">categories</span><span class="o">=</span><span class="n">categories</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1">#print(train.data[0])</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>From: alung@megatest.com (Aaron Lung)
-Subject: Re: Changing oil by self.rist, another dealer service scam...
-Organization: Megatest Corporation
-Lines: 25
-
-In article &lt;1qk5m9$pbe@news.ysu.edu&gt; ak296@yfn.ysu.edu (John R. Daker) writes:
-&gt;&gt;
-&gt;&gt;I was worried about someone stealing my oil once also. I finally 
-&gt;&gt;decided to just have my drain plug welded shut. It works great !
-&gt;&gt;I figure that when I add three or four quarts when the oil light
-&gt;&gt;comes on every month or so that it&#39;s just as good or better than
-&gt;&gt;the old wives tale of changing the oil AND filter every 3000 miles.
-&gt;&gt;Works for me, I must say. 
-&gt;&gt;
-&gt;
-&gt;I did the same thing to my drain plug for the same reasons.  I was wondering
-&gt;how you filled your crankcase though as I welded my hood shut also out of fear
-&gt;that somebody might steal my air-filter.
-
-Oh come on, Silly, all you have to do is cut a hole in your hood and 
-put a tube there so you can get to the oil fill hole.  What do you
-think all those big air intake things are for on those hot-rod cars?
-They&#39;re just for looks only...little does anyone know, they provide
-access to the oil-fill hole.
-
-Well, over where we live, we have problems with vandals stealing 
-people&#39;s wheels.  Those locking nuts didn&#39;t stop them.  So to be
-safe and sure, I welded the lug nuts to my wheels together.  It
-works, serious!  I haven&#39;t had my wheels stolen yet!
-.
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#统计数据集</span>
@@ -11902,11 +11854,10 @@ talk.politics.mideast have 564 train data, and 376 test data.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#图表展示</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;train&#39;</span><span class="p">:</span><span class="n">train_data_count</span><span class="p">,</span>
          <span class="s1">&#39;test&#39;</span><span class="p">:</span><span class="n">test_data_count</span> <span class="p">}</span>
@@ -11925,13 +11876,13 @@ talk.politics.mideast have 564 train data, and 376 test data.
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[4]:</div>
+<div class="prompt output_prompt">Out[11]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0xfa7ca58&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x60bed30&gt;</pre>
 </div>
 
 </div>
@@ -12127,12 +12078,350 @@ ZtZLrVJv3z16M7MearV6++7Rm5n1UKvV23eiNzPLnKdXmpllzonezCxzTvRmZplzojczy5wTvZlZ
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#统计高频词</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="n">words_dic</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">content</span> <span class="ow">in</span> <span class="n">train</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\W&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words_dic</span><span class="p">:</span>
+            <span class="n">words_dic</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">words_dic</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">words_dic</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">words_dic</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;value&quot;</span><span class="p">:</span><span class="n">values</span><span class="p">})</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">keys</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:,:]</span>
+<span class="n">frame</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0xf1cfa90&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYcAAAEGCAYAAACO8lkDAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAAADl0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uIDIuMS4wLCBo
+dHRwOi8vbWF0cGxvdGxpYi5vcmcvpW3flQAAFPtJREFUeJzt3X+wXWV97/H3FxIIlQgxBEmTXE7a
+pghRSkKKaXVqNVcSFRs6N2AoSi7QZsYLAo4zBet0BFvn4r29WukoDhVKoLYhE/WS20IzFMPltkUg
+QYqElEtKpRz5kdMEY6wNJPHbP/Zz0u15TjwnJ+esvZPzfs3s2Xs969lrfTecnM9Z63nW2pGZSJLU
+7qhOFyBJ6j6GgySpYjhIkiqGgySpYjhIkiqGgySpYjhIkiqGgySpYjhIkioTOl3ASJ100knZ09PT
+6TIk6bCxadOmf8nMacPpe9iGQ09PDxs3bux0GZJ02IiI54bb19NKkqSK4SBJqhgOkqTKYTvmMJg9
+e/bQ29vL7t27O11KoyZNmsTMmTOZOHFip0uRdIQ4osKht7eXyZMn09PTQ0R0upxGZCbbt2+nt7eX
+2bNnd7ocSUeII+q00u7du5k6deq4CQaAiGDq1Knj7mhJ0tg6osIBGFfB0G88fmZJY+uICwdJ0qE7
+osYcBuq57i9HdXvfufF9o7q9448/nh/84Aejuk1Jh6fR+H01mr+jPHKQJFUMh1F07bXX8sUvfnH/
+8vXXX88NN9zAokWLmD9/Pm95y1u4++67q/c98MADnHfeefuXr7zySm6//XYANm3axDve8Q7OPvts
+Fi9ezIsvvjjmn0OSDIdRtHz5cu666679y2vWrOHSSy/l61//Oo899hgbNmzgYx/7GJk5rO3t2bOH
+j3zkI6xdu5ZNmzZx2WWX8YlPfGKsypek/Y7oMYemzZs3j23btvHCCy/Q19fHlClTmD59Oh/96Ed5
+8MEHOeqoo/jud7/Lyy+/zCmnnDLk9p5++mmefPJJ3v3udwOwb98+pk+fPtYfQ5IMh9G2bNky1q5d
+y0svvcTy5cv5yle+Ql9fH5s2bWLixIn09PRU1yRMmDCBH/3oR/uX+9dnJnPnzuWhhx5q9DNIkqeV
+Rtny5ctZvXo1a9euZdmyZezcuZOTTz6ZiRMnsmHDBp57rr5j7qmnnspTTz3Fq6++ys6dO7n//vsB
+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
+RK5CYII=
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#统计文本长度</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="k">def</span> <span class="nf">count_length</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">length_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">content</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\W&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="n">length_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+    <span class="n">length_list</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The shortest is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">length_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot; and the longest is &quot;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">length_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The average is &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">length_list</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">length_list</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">length_list</span>
+<span class="n">train_length_list</span> <span class="o">=</span> <span class="n">count_length</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">train_length_list</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The shortest is 18 and the longest is 12172
+The average is 321
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[32]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(array([  3.35300000e+03,   8.10000000e+01,   1.50000000e+01,
+          6.00000000e+00,   6.00000000e+00,   1.00000000e+00,
+          2.00000000e+00,   2.00000000e+00,   2.00000000e+00,
+          2.00000000e+00,   1.00000000e+00,   2.00000000e+00]),
+ array([    18.        ,   1030.83333333,   2043.66666667,   3056.5       ,
+          4069.33333333,   5082.16666667,   6095.        ,   7107.83333333,
+          8120.66666667,   9133.5       ,  10146.33333333,  11159.16666667,
+         12172.        ]),
+ &lt;a list of 12 Patch objects&gt;)</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+AEhSp/4/OrCRZ42JH4EAAAAASUVORK5CYII=
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 抽取特征</span>
 <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">HashingVectorizer</span>  
-<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">HashingVectorizer</span><span class="p">(</span><span class="n">stop_words</span> <span class="o">=</span> <span class="s1">&#39;english&#39;</span><span class="p">,</span><span class="n">n_features</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span><span class="n">non_negative</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>  
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">HashingVectorizer</span><span class="p">(</span><span class="n">stop_words</span> <span class="o">=</span> <span class="s1">&#39;english&#39;</span><span class="p">,</span><span class="n">n_features</span> <span class="o">=</span> <span class="mi">20000</span><span class="p">,</span><span class="n">non_negative</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>  
 <span class="n">train_data</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>  
 <span class="n">test_data</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">train_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -12153,11 +12442,11 @@ ZtZLrVJv3z16M7MearV6++7Rm5n1UKvV23eiNzPLnKdXmpllzonezCxzTvRmZplzojczy5wTvZlZ
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>E:\Anaconda\envs\py2\lib\site-packages\sklearn\feature_extraction\hashing.py:94: DeprecationWarning: the option non_negative=True has been deprecated in 0.19 and will be removed in version 0.21.
+<pre>C:\Users\xzmh2o\Anaconda3\envs\py2\lib\site-packages\sklearn\feature_extraction\hashing.py:94: DeprecationWarning: the option non_negative=True has been deprecated in 0.19 and will be removed in version 0.21.
   &#34; in version 0.21.&#34;, DeprecationWarning)
-E:\Anaconda\envs\py2\lib\site-packages\sklearn\feature_extraction\hashing.py:94: DeprecationWarning: the option non_negative=True has been deprecated in 0.19 and will be removed in version 0.21.
+C:\Users\xzmh2o\Anaconda3\envs\py2\lib\site-packages\sklearn\feature_extraction\hashing.py:94: DeprecationWarning: the option non_negative=True has been deprecated in 0.19 and will be removed in version 0.21.
   &#34; in version 0.21.&#34;, DeprecationWarning)
-E:\Anaconda\envs\py2\lib\site-packages\sklearn\feature_extraction\hashing.py:94: DeprecationWarning: the option non_negative=True has been deprecated in 0.19 and will be removed in version 0.21.
+C:\Users\xzmh2o\Anaconda3\envs\py2\lib\site-packages\sklearn\feature_extraction\hashing.py:94: DeprecationWarning: the option non_negative=True has been deprecated in 0.19 and will be removed in version 0.21.
   &#34; in version 0.21.&#34;, DeprecationWarning)
 </pre>
 </div>
@@ -12169,8 +12458,8 @@ E:\Anaconda\envs\py2\lib\site-packages\sklearn\feature_extraction\hashing.py:94:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>(3473, 10000)
-(2314, 10000)
+<pre>(3473, 20000)
+(2314, 20000)
 </pre>
 </div>
 </div>
@@ -12181,7 +12470,7 @@ E:\Anaconda\envs\py2\lib\site-packages\sklearn\feature_extraction\hashing.py:94:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 训练基准模型并测试性能</span>
@@ -12222,31 +12511,31 @@ E:\Anaconda\envs\py2\lib\site-packages\sklearn\feature_extraction\hashing.py:94:
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>svc训练时间为7.29399991035
-svc预测时间为4.17100000381
+<pre>svc训练时间为8.19200015068
+svc预测时间为4.47499990463
                        precision    recall  f1-score   support
 
-        comp.graphics       0.86      0.87      0.86       389
-            rec.autos       0.89      0.90      0.90       396
-      sci.electronics       0.75      0.88      0.81       393
-              sci.med       0.87      0.80      0.84       396
-   talk.politics.guns       0.94      0.93      0.93       364
-talk.politics.mideast       0.98      0.87      0.92       376
+        comp.graphics       0.85      0.87      0.86       389
+            rec.autos       0.92      0.90      0.91       396
+      sci.electronics       0.76      0.89      0.82       393
+              sci.med       0.89      0.83      0.86       396
+   talk.politics.guns       0.95      0.93      0.94       364
+talk.politics.mideast       0.99      0.89      0.93       376
 
-          avg / total       0.88      0.87      0.88      2314
+          avg / total       0.89      0.88      0.89      2314
 
-线性SVC训练时间为0.131000041962
-线性SVC预测时间为0.00300002098083
+线性SVC训练时间为0.140999794006
+线性SVC预测时间为0.00200009346008
                        precision    recall  f1-score   support
 
-        comp.graphics       0.86      0.89      0.88       389
+        comp.graphics       0.88      0.89      0.88       389
             rec.autos       0.91      0.92      0.92       396
-      sci.electronics       0.81      0.87      0.84       393
-              sci.med       0.90      0.84      0.87       396
-   talk.politics.guns       0.93      0.95      0.94       364
-talk.politics.mideast       0.97      0.91      0.94       376
+      sci.electronics       0.82      0.90      0.86       393
+              sci.med       0.93      0.87      0.90       396
+   talk.politics.guns       0.94      0.95      0.94       364
+talk.politics.mideast       0.97      0.92      0.95       376
 
-          avg / total       0.90      0.90      0.90      2314
+          avg / total       0.91      0.91      0.91      2314
 
 </pre>
 </div>
@@ -12258,20 +12547,18 @@ talk.politics.mideast       0.97      0.91      0.94       376
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 为创建词向量做预处理</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">UserWarning</span><span class="p">,</span> <span class="n">module</span><span class="o">=</span><span class="s1">&#39;gensim&#39;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">gensim.parsing.preprocessing</span> <span class="kn">import</span> <span class="n">STOPWORDS</span>
-<span class="kn">import</span>  <span class="nn">re</span>
 <span class="n">processed_train</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">processed_test</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">train</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
     <span class="n">document</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="n">words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\W&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="n">document</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-<span class="c1">#     words = [w for w in words if w not in STOPWORDS]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)):</span>
         <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
     <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">STOPWORDS</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="n">char</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">w</span><span class="p">)]</span>
@@ -12279,7 +12566,6 @@ talk.politics.mideast       0.97      0.91      0.94       376
 <span class="k">for</span> <span class="n">document</span> <span class="ow">in</span> <span class="n">test</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
     <span class="n">document</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="n">words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;\W&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="n">document</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-<span class="c1">#     words = [w for w in words if w not in STOPWORDS]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)):</span>
         <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
     <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">STOPWORDS</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="n">char</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">w</span><span class="p">)]</span>
@@ -12293,7 +12579,7 @@ talk.politics.mideast       0.97      0.91      0.94       376
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 训练词向量模型并保存</span>
@@ -12316,7 +12602,7 @@ talk.politics.mideast       0.97      0.91      0.94       376
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#使用简单的求和方式获取文档向量</span>
@@ -12345,7 +12631,51 @@ talk.politics.mideast       0.97      0.91      0.94       376
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">lclf</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">()</span>
+<span class="n">lclf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">docs_vec_train</span><span class="p">,</span><span class="n">train</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
+<span class="n">test_lsv_predict</span> <span class="o">=</span> <span class="n">lclf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">docs_vec_test</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">test_lsv_predict</span><span class="p">,</span><span class="n">target_names</span><span class="o">=</span><span class="n">test</span><span class="o">.</span><span class="n">target_names</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                       precision    recall  f1-score   support
+
+        comp.graphics       0.77      0.87      0.82       389
+            rec.autos       0.90      0.80      0.85       396
+      sci.electronics       0.74      0.73      0.73       393
+              sci.med       0.83      0.88      0.86       396
+   talk.politics.guns       0.98      0.88      0.93       364
+talk.politics.mideast       0.93      0.96      0.94       376
+
+          avg / total       0.86      0.85      0.85      2314
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#搜索参数</span>
@@ -12388,7 +12718,7 @@ talk.politics.mideast       0.97      0.91      0.94       376
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#训练分类模型并测试性能</span>
@@ -12418,11 +12748,11 @@ talk.politics.mideast       0.97      0.91      0.94       376
 <pre>训练集结果
                        precision    recall  f1-score   support
 
-        comp.graphics       0.91      0.92      0.91       584
+        comp.graphics       0.92      0.91      0.91       584
             rec.autos       0.91      0.93      0.92       594
-      sci.electronics       0.89      0.85      0.87       591
-              sci.med       0.94      0.95      0.95       594
-   talk.politics.guns       0.96      0.97      0.96       546
+      sci.electronics       0.89      0.86      0.87       591
+              sci.med       0.93      0.95      0.94       594
+   talk.politics.guns       0.96      0.96      0.96       546
 talk.politics.mideast       0.99      0.99      0.99       564
 
           avg / total       0.93      0.93      0.93      3473
@@ -12430,11 +12760,11 @@ talk.politics.mideast       0.99      0.99      0.99       564
 测试集结果
                        precision    recall  f1-score   support
 
-        comp.graphics       0.81      0.87      0.84       389
-            rec.autos       0.89      0.89      0.89       396
-      sci.electronics       0.79      0.72      0.75       393
-              sci.med       0.88      0.87      0.87       396
-   talk.politics.guns       0.92      0.93      0.93       364
+        comp.graphics       0.82      0.86      0.84       389
+            rec.autos       0.90      0.88      0.89       396
+      sci.electronics       0.78      0.73      0.76       393
+              sci.med       0.85      0.90      0.87       396
+   talk.politics.guns       0.93      0.93      0.93       364
 talk.politics.mideast       0.96      0.95      0.96       376
 
           avg / total       0.87      0.87      0.87      2314
@@ -12449,11 +12779,13 @@ talk.politics.mideast       0.96      0.95      0.96       376
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 计算idf字典</span>
 <span class="n">idf_count_dic</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="c1"># 计算权重字典</span>
+<span class="n">use_count_dic</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">word_vectors</span><span class="o">.</span><span class="n">vocab</span><span class="p">:</span>
     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -12464,6 +12796,11 @@ talk.politics.mideast       0.96      0.95      0.96       376
         <span class="n">document</span> <span class="o">=</span> <span class="n">processed_train</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">document</span><span class="p">:</span>
             <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">use_count_dic</span><span class="p">:</span>
+                <span class="n">use_count_dic</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">train</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">use_count_dic</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">)</span>
+                <span class="n">use_count_dic</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">train</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">idf_count_dic</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
 </pre></div>
 
@@ -12511,7 +12848,7 @@ talk.politics.mideast       0.96      0.95      0.96       376
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#结合idf获取文档向量</span>
@@ -12540,7 +12877,7 @@ talk.politics.mideast       0.96      0.95      0.96       376
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#搜索参数</span>
@@ -12572,7 +12909,7 @@ talk.politics.mideast       0.96      0.95      0.96       376
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;C&#39;: 2}
+<pre>{&#39;C&#39;: 1}
 </pre>
 </div>
 </div>
@@ -12583,7 +12920,7 @@ talk.politics.mideast       0.96      0.95      0.96       376
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#训练分类模型并测试性能</span>
@@ -12613,27 +12950,161 @@ talk.politics.mideast       0.96      0.95      0.96       376
 <pre>训练集结果
                        precision    recall  f1-score   support
 
-        comp.graphics       0.92      0.94      0.93       584
-            rec.autos       0.93      0.94      0.93       594
-      sci.electronics       0.89      0.86      0.88       591
+        comp.graphics       0.91      0.94      0.93       584
+            rec.autos       0.94      0.94      0.94       594
+      sci.electronics       0.90      0.87      0.88       591
               sci.med       0.96      0.95      0.96       594
-   talk.politics.guns       0.98      0.97      0.97       546
-talk.politics.mideast       0.98      0.99      0.99       564
+   talk.politics.guns       0.97      0.97      0.97       546
+talk.politics.mideast       0.99      0.99      0.99       564
 
           avg / total       0.94      0.94      0.94      3473
 
 测试集结果
                        precision    recall  f1-score   support
 
-        comp.graphics       0.85      0.90      0.87       389
-            rec.autos       0.91      0.92      0.91       396
-      sci.electronics       0.84      0.80      0.82       393
-              sci.med       0.92      0.90      0.91       396
-   talk.politics.guns       0.94      0.95      0.94       364
-talk.politics.mideast       0.97      0.96      0.96       376
+        comp.graphics       0.84      0.89      0.87       389
+            rec.autos       0.92      0.91      0.91       396
+      sci.electronics       0.82      0.78      0.80       393
+              sci.med       0.91      0.90      0.91       396
+   talk.politics.guns       0.93      0.96      0.94       364
+talk.politics.mideast       0.97      0.95      0.96       376
 
           avg / total       0.90      0.90      0.90      2314
 
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#搜集分类错误的测试数据</span>
+<span class="n">wrong_test_id</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">target</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">test</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">test_vec_predict2</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="n">wrong_test_id</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">wrong_test_id</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>237
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">wrong_data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">wrong_test_id</span><span class="p">:</span>
+    <span class="n">wrong_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">count_length</span><span class="p">(</span><span class="n">wrong_data</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">count_length</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The shortest is 27 and the longest is 1656
+The average is 216
+The shortest is 21 and the longest is 10061
+The average is 324
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#个体分析</span>
+<span class="n">number</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">example</span> <span class="o">=</span> <span class="n">wrong_test_id</span><span class="p">[</span><span class="n">number</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">example</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="n">test</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="n">example</span><span class="p">]])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">test</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="n">test_vec_predict2</span><span class="p">[</span><span class="n">example</span><span class="p">]])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>From: &#34;Arun G. Jayakumar&#34; &lt;aj22+@andrew.cmu.edu&gt;
+Subject: VASCAR
+Organization: Freshman, Biology, Carnegie Mellon, Pittsburgh, PA
+Lines: 16
+NNTP-Posting-Host: po3.andrew.cmu.edu
+
+I know this is the wrong place to post this, but I couldn&#39;t find any
+relevant newsgroups in my area.
+
+For those of you who are from PA, where is VASCAR (where the cops
+measure your speed from the time it takes you to cross the distance
+between two white lines on the road, right?) most commonly used?  I&#39;m
+especially interested in the Pittsburgh area (specific locations, prior
+experiences, if possible).  For those PA and non-PA, if they use VASCAR
+in your state, is it most common in rural, city, highway areas, etc. 
+What I&#39;m interested in mainly is where I can speed with the least risk
+of being caught.  You can always detect radar, but there&#39;s no way to
+fight VASCAR unless you know where all the white lines are.
+
+Thanks a lot,
+
+    Arun Jayakumar
+
+rec.autos
+sci.electronics
 </pre>
 </div>
 </div>
